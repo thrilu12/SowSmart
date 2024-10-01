@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agri Farming</title>
+    <style>
+         button {
+            background-color: #27ae60;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ecf0f1;
+            color: #2c3e50;
+        }
+
+        h1 {
+            text-align: center;
+            color: #27ae60;
+        }
+
+
+        .product {
+            border: 2px solid #3498db;
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .product:hover {
+            transform: scale(1.02);
+        }
+
+        .product img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+        }
+
+        .product-info {
+            flex: 1;
+            margin-left: 20px;
+            text-align: left;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        #cart {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .cart-item {
+            margin: 5px;
+        }
+
+        .buy-now {
+            background-color: #27ae60;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Pesticides</h1>
+    
+    <!-- Product 1: Insecticide -->
+    <div class="product" id="product1">
+        <img src="chlorine.png" alt="Insecticide">
+        <div class="product-info">
+            <h2>Organochlorine</h2>
+            <p>Most act on neurons by causing a sodium/potassium imbalance preventing normal transmission of nerve impulses. Some act on the GABA (γ-aminobutyric acid) receptor preventing chloride ions from entering the neurons causing a hyperexcitable state characterized by tremors and convulsions. Usually broad-spectrum insecticides that have been taken out of use.</p>
+            <button onclick="addToCart(1)">Add to Cart</button>
+            <button class="buy-now" onclick="buyNow(1)"><a href="buynow.html">Buy Now</a></button>
+        </div>
+    </div>
+    <div class="product" id="product1">
+        <img src="carba.png" alt="Insecticide">
+        <div class="product-info">
+            <h2>Carbamates</h2>
+            <p>Cause acetylcholinesterase (AChE) inhibition leading to central nervous system effects (i.e., rapid twitching of voluntary muscles and eventually paralysis). Has very broad spectrum toxicity and is highly toxic to fish.</p>
+            <button onclick="addToCart(1)">Add to Cart</button>
+            <button class="buy-now" onclick="buyNow(1)"><a href="buynow.html">Buy Now</a></button>
+        </div>
+    </div>
+    <div class="product" id="product1">
+        <img src="forma.png" alt="Insecticide">
+        <div class="product-info">
+            <h2>Formamidines</h2>
+            <p>Inhibit the enzyme monoamine oxidase that degrades neurotransmitters causing an accumulation of these compounds; affected insects become quiescent and die. Used in the control of OP and carbamate-resistant pests.</p>
+            <button onclick="addToCart(1)">Add to Cart</button>
+            <button class="buy-now" onclick="buyNow(1)"><a href="buynow.html">Buy Now</a></button>
+        </div>
+    </div>
+    
+    <!-- Product 2: Herbicide -->
+    <div class="product" id="product2">
+        <img src="herbicis.jpg" alt="Herbicide">
+        <div class="product-info">
+            <h2>Herbicide</h2>
+            <p>Herbicides are chemicals used to manipulate or control undesirable vegetation. Herbicide application occurs most frequently in row-crop farming, where they are applied before or during planting to maximize crop productivity by minimizing other vegetation.</p>
+            <button onclick="addToCart(2)">Add to Cart</button>
+            <button class="buy-now" onclick="buyNow(2)"><a href="buynow.html">Buy Now</a></button>
+        </div>
+    </div>
+
+    <div class="product" id="product2">
+        <img src="herbi2.png" alt="Herbicide">
+        <div class="product-info">
+            <h2>All Clear 500 ML (Paraquat Dichloride 24% SL) Non Selective Herbicide</h2>
+            <p>DESCRIPTION-All Clear ( Paraquat Dichloride 24% SL) is broad spectrum, non selective & contact herbicide containing 24% Paraquat dichloride A.I which effectively controls broadleaved weeds & grasses. During photosynthesis superoxide generated, which damages cell membranes and cytoplasm.
+                MODE OF ACTIONNon-Selective contact herbicide, absorbed by the foliage, with some translocation in the xylem.</p>
+            <button onclick="addToCart(2)">Add to Cart</button>
+            <button class="buy-now" onclick="buyNow(2)"><a href="buynow.html">Buy Now</a></button>
+        </div>
+    </div>
+
+    <div class="product" id="product2">
+        <img src="herbicide3.jpg" alt="Herbicide">
+        <div class="product-info">
+            <h2>GLYCEL HERBICIDE</h2>
+            <p>Glycel is a systemic, broad-spectrum, non-selective post-emergent herbicide. It is effective in controlling all weeds including annuals, perennials, grassy, broadleaf weeds, and sedges.</p>
+            <button onclick="addToCart(2)">Add to Cart</button>
+            <button class="buy-now" onclick="buyNow(2)"><a href="buynow.html">Buy Now</a></button>
+        </div>
+    </div>
+
+    <!-- Product 3: Fungicide -->
+    <div class="product" id="product3">
+        <img src="fung1.jpg" alt="Fungicide">
+        <div class="product-info">
+            <h2>SAAF FUNGICIDE</h2>
+            <p>SAAF Fungicide is a proven & classic fungicide with systemic & contact action. Most trusted & widely used dual mode of action fungicide
+            </p>
+            <button onclick="addToCart(3)">Add to Cart</button>
+            <button class="buy-now" onclick="buyNow(3)"><a href="buynow.html">Buy Now</a></button>
+        </div>
+    </div>
+
+    <div class="product" id="product3">
+        <img src="fung2.jpg" alt="Fungicide">
+        <div class="product-info">
+            <h2>BAVISTIN FUNGICIDE</h2>
+            <p>Bavistin fungicide is a broad spectrum systemic fungicide effective against a wide range of pathogenic fungi and is highly specific in its control of important plant pathogens on a variety of crops, ornamental plants and plantation crops.</p>
+            <button onclick="addToCart(3)">Add to Cart</button>
+            <button class="buy-now" onclick="buyNow(3)"><a href="buynow.html">Buy Now</a></button>
+        </div>
+    </div>
+
+    <div class="product" id="product3">
+        <img src="fung3.jpg" alt="Fungicide">
+        <div class="product-info">
+            <h2>Plantic Total Plant Care 3 in 1 Organic Fungicide, Miticide, Insecticide</h2>
+            <p>Plantic Total Plant Care 3 in 1 Dosage: 3ML to 5ML in 1 Litre of water and spray on the plants.
+                For better results, use after every 7 days.
+                Use preferably in the early morning/late evening.
+                Shake well before use.</p>
+            <button onclick="addToCart(3)">Add to Cart</button>
+            <button class="buy-now" onclick="buyNow(3)"><a href="buynow.html">Buy Now</a></button>
+        </div>
+    </div>
+
+    <!-- Product 4: Rodenticide -->
+    <div class="product" id="product4">
+        <img src="rode1.jpg" alt="Rodenticide">
+        <div class="product-info">
+            <h2>Zn3P2 Ultima's RatolZink Rodenticide</h2>
+            <p>Zn3P2 is effective against rats, mice and other rodents in and around buildings, fields, orchards and other outdoor areas.
+                Concentrated powder that has to be mixed with food material to produce bait
+                Fast acting | Recommended for mass control of even large size rodents
+                Recommended for use in agricultural and non-inhabited area</p>
+            <button onclick="addToCart(4)">Add to Cart</button>
+            <button class="buy-now" onclick="buyNow(4)"><a href="buynow.html">Buy Now</a></button>
+        </div>
+    </div>
+
+    <div class="product" id="product4">
+        <img src="rode2.jpg" alt="Rodenticide">
+        <div class="product-info">
+            <h2>Ratol (UPL) 100gm pack RODENTICIDE</h2>
+            <p>Is a quick acting, easy-to-use rodenticide used in baits to control field rats, mice and other harmful rodents.
+                Zinc phosphide converts to phosphine gas in the presence of moisture and acid in the stomach. The toxicity of zinc phosphide is due to phosphine gas exposure</p>
+            <button onclick="addToCart(4)">Add to Cart</button>
+            <button class="buy-now" onclick="buyNow(4)"><a href="buynow.html">Buy Now</a></button>
+        </div>
+    </div>
+    <!-- Cart Modal and Cart Button -->
+    <div id="cartModal" style="display: none;">
+        <!-- ... (unchanged) ... -->
+    </div>
+
+    <div id="cart" onclick="viewCart()">Cart: <span id="cartCount">0</span></div>
+
+    <script>
+        // ... (unchanged) ...
+    </script>
+
+</body>
+</html>

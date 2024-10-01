@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agri Farming</title>
+    <style>
+         button {
+            background-color: #27ae60;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ecf0f1;
+            color: #2c3e50;
+        }
+
+        h1 {
+            text-align: center;
+            color: #27ae60;
+        }
+
+
+        .product {
+            border: 2px solid #3498db;
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .product:hover {
+            transform: scale(1.02);
+        }
+
+        .product img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+        }
+
+        .product-info {
+            flex: 1;
+            margin-left: 20px;
+            text-align: left;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        #cart {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .cart-item {
+            margin: 5px;
+        }
+
+        .buy-now {
+            background-color: #27ae60;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>WATER MOTORS</h1>
+    
+    <!-- Product 1: WATERMOTORS -->
+    <div class="product" id="product1">
+        <img src="motor1.jpg" alt="WATER MOTORS">
+        <div class="product-info">
+            <h2>LAKSHMI 0.5 HP Self Priming Monoblock Water Pump (Yellow, Green)</h2>
+            <p>Water pumps for domestic use</p>
+            <button onclick="addToCart(1)">Add to Cart</button>
+            <button class="buy-now" onclick="buyNow(1)"><a href="buynow.html">Buy Now</a></button>
+        </div>
+    </div>
+    <div class="product" id="product1">
+        <img src="motor2.jpg" alt="WATER MOTORS">
+        <div class="product-info">
+            <h2>Monoblock Water Pump 3 HP Motor 2.5 x 2 Inch Inlet/Outlet</h2>
+            <p>Centrifugal Monoblock Pumps are mainly recommended for freshwater as well as fluids which are not chemically violent toward the components of the pump. These pumps are mainly used for agriculture ,small irrigation ,fountains etc , Buy on yantratools best Machinery all over India at best prices . Monoblock Water Pump is useful in water supply for domestic use in bungalows, apartments, hotels and hospitals and also ideal for domestic water supply. The impeller is of forged brass and delivery casing is made of cast iron. </p>
+            <button onclick="addToCart(1)">Add to Cart</button>
+            <button class="buy-now" onclick="buyNow(1)"><a href="buynow.html">Buy Now</a></button>
+        </div>
+    </div>
+    <div class="product" id="product1">
+        <img src="motor3.jpg.webp" alt="WATER MOTORS">
+        <div class="product-info">
+            <h2>Neptune Simplify Farming 4 Stroke BASIC TECHNOLOGY 6.5HP Petrol Engine Portable Petrol Water Pump Used for Agriculture, Farming, Irrigation & Draining (Basic)</h2>
+            <p>SPECIFICATION - Brand: Neptune Simplify Farming, Engine Output - 6.5 HP, Power - 4 Stroke Petrol Engine Displacement (cc): 196 Cc, Fuel Tank Capacity (L): 3.6L, Power Output (/HP/RPM): 6.5 HP/3600RPM, Max Flow: 600 liters per minute, Suction Left : 7 M, Continue Operation Time: 6 Hours, Suction Outlet: 3 Inch, Pump Inner Outlet Diameter: 80mm/80mm, Pump Lift: 30 M (Horizontal)</p>
+            <button onclick="addToCart(1)">Add to Cart</button>
+            <button class="buy-now" onclick="buyNow(1)"><a href="buynow.html">Buy Now</a></button>
+        </div>
+    </div>
+    
+    <!-- Product 2: WATER DISPENSER -->
+    <div class="product" id="product2">
+        <img src="water1.jpg" alt="WATER DISPENSER">
+        <div class="product-info">
+            <h2>AgriPro 16L Knapsack Manual Sprayer for Gardening, Farming & Sanitization</h2>
+            <p>The AGRIPRO 16 L Knapsack Sprayer is featured with easy to fill, easy-clean and leak-free tank. Its spray gun is made of brass and has a non-metallic handgrip for ease of operation. The swivel nozzle provides excellent spraying accuracy. Suitable for spraying both liquid fertilizers and liquid pesticides on all crops i.e., vegetables & fruits, plantation crops like tea, coffee etc., in a small or large area.</p>
+            <button onclick="addToCart(2)">Add to Cart</button>
+            <button class="buy-now" onclick="buyNow(2)"><a href="buynow.html">Buy Now</a></button>
+        </div>
+    </div>
+
+    <div class="product" id="product2">
+        <img src="water2.jpg" alt="WATER DISPENSER">
+        <div class="product-info">
+            <h2>Gate Garden Watering Can (5L) | Plastic Green Water Can With Sprayer for Plants/Garden</h2>
+            <p>Material: Adjustable brass nozzle is made of high-quality and sturdy plastic material, which is robust, durable, and resistant to cracking, and rusting.
+                The package contains 1 Piece of Kraft Seeds Pressure Spray Pump (5L)
+                Lightweight, easy to use and handle for both indoor and outdoor gardens. The sprayer can be used for cleaning purposes, water plants or to spray fungicides, insecticides, and herbicides.</p>
+            <button onclick="addToCart(2)">Add to Cart</button>
+            <button class="buy-now" onclick="buyNow(2)"><a href="buynow.html">Buy Now</a></button>
+        </div>
+    </div>
+
+    <div class="product" id="product2">
+        <img src="water3.jpg" alt="WATER DISPENSER">
+        <div class="product-info">
+            <h2>Unbreakable Watering Can For plants (5ltr)</h2>
+            <p>Efficient Watering: With the Actionware Watering Shower,you can effortlessly water your plants with precision, reaching every nook and cranny while avoiding excessive water usage.
+                Versatile Usage: This shower head is not only suitable for watering plants but can also be used for cleaning tasks, such as washing outdoor furniture, cars, or even showering pets.</p>
+            <button onclick="addToCart(2)">Add to Cart</button>
+            <button class="buy-now" onclick="buyNow(2)"><a href="buynow.html">Buy Now</a></button>
+        </div>
+    </div>
+
+    <!-- Cart Modal and Cart Button -->
+    <div id="cartModal" style="display: none;">
+        <!-- ... (unchanged) ... -->
+    </div>
+
+    <div id="cart" onclick="viewCart()">Cart: <span id="cartCount">0</span></div>
+
+    <script>
+        // ... (unchanged) ...
+    </script>
+
+</body>
+</html>

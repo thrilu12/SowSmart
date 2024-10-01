@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Information</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 50px;
+            background: linear-gradient(to right, #3498db, #5ce765);
+            color: #fff;
+        }
+
+        h1 {
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        #weather-info {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        p {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        p.loading {
+            color: #3498db;
+            font-weight: bold;
+            animation: pulse 1s infinite;
+        }
+
+        p.error {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.6;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.6;
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Weather Information</h1>
+    
+    <div id="weather-info">
+        <p class="loading">Loading...</p>
+    </div>
+
+    <script>
+        const apiKey = 'eedb5d3a6c296d27f9976727baeface2';
+        const latitude = '40.7128'; 
+        const longitude = '-74.0060';
+        const apiUrl = `https://api.weatherstack.com/current?access_key=${apiKey}&query=${latitude},${longitude}`;
+
+        const weatherInfoElement = document.getElementById('weather-info');
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const temperature = data.current.temperature;
+                const humidity = data.current.humidity;
+                const description = data.current.weather_descriptions[0];
+                weatherInfoElement.innerHTML = `
+                    <p>Temperature: ${temperature}°C</p>
+                    <p>Humidity: ${humidity}%</p>
+                    <p>Description: ${description}</p>
+                `;
+            })
+            .catch(error => {
+                console.error('Error fetching weather data:', error);
+                weatherInfoElement.innerHTML = '<p class="error">Unable to fetch weather data.</p>';
+            });
+    </script>
+</body>
+</html>

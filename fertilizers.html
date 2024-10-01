@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agri Farming</title>
+    <style>
+        button {
+            background-color: #27ae60;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ecf0f1;
+            color: #2c3e50;
+        }
+
+        h1 {
+            text-align: center;
+            color: #27ae60;
+        }
+
+
+        .product {
+            border: 2px solid #3498db;
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .product:hover {
+            transform: scale(1.02);
+        }
+
+        .product img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+        }
+
+        .product-info {
+            flex: 1;
+            margin-left: 20px;
+            text-align: left;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        #cart {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .cart-item {
+            margin: 5px;
+        }
+
+        .buy-now {
+            background-color: #27ae60;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>fertilizers</h1>
+    <div class="product" id="product1">
+        <img src="ferti4.jpg" alt="Product 1">
+        <div class="product-info">
+            <h2>BlackpearlOrganicfertilizer 100% Blackpearl organic fertilizer(1kg pack) Fertilizer  (1 kg, Powder)</h2>
+            <p>It's a 100% organic fertilizer.It contains beneficial nutrients which are main foods for plants .It contains microorganisms which break down soil and improves soil texture. It provides to retain soil ability to store water.It balance soil ph value.USES Very useful for Organic kitchen garden,Terrace garden & Home garden. Small plant-100gram .Big plant-250gram</p>
+            <button onclick="addToCart(1)">Add to Cart</button>
+            <button class="buy-now" align="left" onclick="buyNow(1)"><a href="buynow.html">Buy Now</a></button>
+        </div>
+    </div>
+    <div class="product" id="product1">
+        <img src="ferti3.jpg" alt="Product 1">
+        <div class="product-info">
+            <h2>Improves Size of Flowers, Fruits and Vegetables. Good quality It controls the leaf yellowing, and improving green leaves
+Plants will still wilt if it gets hot enough; however adequate potassium (K) will increase the plants’ ability to tolerate heat/ drought stress however will not eliminate it.
+Plant Food Fertilizer for flowers, fertilizers for home plants provides an excellent effect on overall plant growth, encourages the growth of shoots/leaves and improves the quality and shelf life of the produce.
+all essential nutrients for plants helps in growth of stem, flowers and bud</h2>
+            <p>Description of Product 1. Price: $19.99</p>
+            <button onclick="addToCart(1)">Add to Cart</button>
+            <button class="buy-now" onclick="buyNow(1)"><a href="buynow.html">Buy Now</a></button>
+        </div>
+    </div>
+<div class="product" id="product1">
+    </a><a href="detaileddescriptionpest.html"><img src="ferti1.jpg" alt="Product 1"></a>
+    <div class="product-info">
+        <h2>Urea Fertilizers For Plants 46% Nitrogen Fertilizer Soil Application And 100 % Water Soluble</h2>
+        <p>Superior Nitrogen content: This percentage is much higher than other available nitrogenous fertilizers in the market.
+Non-flammable and risk-free storage: Not subject to fire or explosion hazards, so there is no risk in the storage of urea.
+Wide application range: Urea fertilizer can be used for all types of crops and soils and has no harm to the soils.
+Neutral pH and harmless to crops and soil.</p>
+        <button onclick="addToCart(1)">Add to Cart</button>
+        <button class="buy-now" onclick="buyNow(1)"><a href="buynow.html">Buy Now</a></button>
+    </div>
+    </div>
+<div class="product" id="product1">
+    <img src="ferti2.jpg" alt="Product 1">
+    <div class="product-info">
+        <h2>Plantic Organic BloomDrop Liquid Plant Food For Buds, Flowers & Fruits</h2>
+        <p>Shake the bottle before mixing with water.
+Add 5 ml of Plantic BloomDrop Plant Food Liquid Fertilizer per litre of water.
+Feed your plant with the mixture.
+Repeat the procedure once per week for better results.</p>
+        <button onclick="addToCart(1)">Add to Cart</button>
+        <button class="buy-now" onclick="buyNow(1)"><a href="buynow.html">Buy Now</a></button>
+    </div>
+    </div>
+
+    <div id="cartModal" style="display: none;">
+        <h2>Your Cart</h2>
+        <div id="cartItems"></div>
+        <button onclick="closeCart()">Close Cart</button>
+        <button onclick="buyNow()">Buy Now</button>
+    </div>
+    
+
+    <div id="cart" onclick="viewCart()">Cart: <span id="cartCount">0</span></div>
+
+    <script>
+        // Add your JavaScript code here
+        let cartCount = 0;
+        let cartItems = {};
+
+        function addToCart(productId) {
+            cartCount++;
+            updateCartCount();
+
+            if (cartItems[productId]) {
+                cartItems[productId]++;
+            } else {
+                cartItems[productId] = 1;
+            }
+
+            updateCartItems();
+            showBuyNowButton();
+            alert('Product ' + productId + ' added to cart!');
+        }
+
+        function removeFromCart(productId) {
+            if (cartItems[productId]) {
+                cartItems[productId]--;
+                if (cartItems[productId] === 0) {
+                    delete cartItems[productId];
+                }
+                cartCount--;
+                updateCartCount();
+                updateCartItems();
+                showBuyNowButton();
+                alert('Product ' + productId + ' removed from cart!');
+            }
+        }
+
+        function updateCartCount() {
+            document.getElementById('cartCount').innerText = cartCount;
+        }
+
+        function updateCartItems() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            cartItemsContainer.innerHTML = '';
+
+            for (const productId in cartItems) {
+                const product = document.createElement('div');
+                product.classList.add('cart-item');
+                product.innerHTML = `Product ${productId}: ${cartItems[productId]} 
+                    <button onclick="removeFromCart(${productId})">Remove</button>`;
+                cartItemsContainer.appendChild(product);
+            }
+        }
+
+        function showBuyNowButton() {
+            const buyNowButton = document.getElementsByClassName('buy-now');
+            if (cartCount > 0) {
+                for (let i = 0; i < buyNowButton.length; i++) {
+                    buyNowButton[i].style.display = 'inline-block';
+                }
+            } else {
+                for (let i = 0; i < buyNowButton.length; i++) {
+                    buyNowButton[i].style.display = 'none';
+                }
+            }
+        }
+
+        function viewCart() {
+            updateCartItems();
+            document.getElementById('cartModal').style.display = 'block';
+        }
+
+        function closeCart() {
+            document.getElementById('cartModal').style.display = 'none';
+        }
+
+        function buyNow(productId) {
+            alert('Buy Now clicked for Product ' + productId + '!'); // Add your buy now functionality here
+        }
+    </script>
+
+</body>
+</html>

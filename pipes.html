@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agri Farming</title>
+    <style>
+        /* Add your CSS styles here */
+        button {
+            background-color: #27ae60;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ecf0f1;
+            color: #2c3e50;
+        }
+
+        h1 {
+            text-align: center;
+            color: #27ae60;
+        }
+
+        /* Add more styles as needed */
+        .product {
+            border: 2px solid #3498db;
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .product:hover {
+            transform: scale(1.02);
+        }
+
+        .product img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+        }
+
+        .product-info {
+            flex: 1;
+            margin-left: 20px;
+            text-align: left;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        #cart {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .cart-item {
+            margin: 5px;
+        }
+
+        .buy-now {
+            background-color: #27ae60;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>pipes</h1>
+
+    <div class="product" id="product1">
+        <img src="pipe1.jpeg" alt="Product 1">
+        <div class="product-info">
+            <h2>UGAOO Super Braided Green Water Hose PVC Pipe With Water Tap Adapter & 2 Clamps For Home Gardening,Cleaning, Outdoor-Indoor Use (Diameter: 0.5 Inch, Length: 10 Meters)</h2>
+            <p>Pacakage Contains: Unbreakable PVC Plain Green Super Braided Water Hose Pipe With Water Tap Adapter & 2 Clamps.
+                Size : 1/2 inch( 0.50 Inch) , Length : 10 meter (32.8 Foot), Includes 1/2 inch tap connector and 2 clamps for leak proof operations.
+                It is made with premium and quality PVC & Abrasion Resistant materials, our garden water pipes are meant for both light and heavy-duty uses.Ugaoo Garden Pipes are rust, corrosion, abrasion-resistant and puncture resistant.
+                This PVC hose is used extensively in domestic, agricultural and industrial applications - gardening, water pumps, washing cars & pets, crop spraying, and many more.
+                It used to transport water for gardening, lawn care, and other landscaping purposes. They are also used for outdoor cleaning of items such as vehicles, equipment, building exteriors.
+                </p>
+            <button onclick="addToCart(1)">Add to Cart</button>
+            <button class="buy-now" align="left" onclick="buyNow(1)"><a href="buynow.html">Buy Now</a></button>
+        </div>
+    </div>
+
+    <div class="product" id="product2">
+        <img src="pipe2.jpeg" alt="Product 2">
+        <div class="product-info">
+            <h2>Tandhan Ecorun LDPE Laminated Woven Lay Flat Tube 2.5 Inch x 90 Mtr Lapeta Pipe | Delivery Pipe for Gardening Water Supply | Rain Pipe | 100% Virgin Krishi Pasara Pipe | Agriculture Pipe</h2>
+            <p>Durable : Its 5 times more stronger than normal pipes in the market. Supplied with heavy duty carry bag.
+                UV Stabilized : U. V Coating provided to protect it from sun light
+                Light Weight : Made light weighted for easy carrying and easy to use
+                100% Virgin Quality - Made with 100% Virgin Raw Material</p>
+            <button onclick="addToCart(2)">Add to Cart</button>
+            <button class="buy-now" onclick="buyNow(2)"><a href="buynow.html">Buy Now</a></button>
+        </div>
+    </div>
+    <div class="product" id="product4">
+        <a herf='detaileddescription/pestiside1.html'><img src="pipe5.webp" alt="Product 4"></a>
+        <div class="product-info">
+            <h2>Tandhan Ecorun LDPE Laminated Woven Lay Flat Tube 2.5 Inch x 90 Mtr Lapeta Pipe | Delivery Pipe for Gardening Water Supply | Rain Pipe | 100% Virgin Krishi Pasara Pipe | Agriculture Pipe (Yellow)</h2>
+            <p>Durable : Its 5 times more stronger than normal pipes in the market. Supplied with heavy duty carry bag.
+                UV Stabilized : U. V Coating provided to protect it from sun light
+                Light Weight : Made light weighted for easy carrying and easy to use
+                100% Virgin Quality - Made with 100% Virgin Raw Material</p>
+            <button onclick="addToCart(4)">Add to Cart</button>
+            <button class="buy-now" onclick="buyNow(4)"><a href="buynow.html">Buy Now</a></button>
+        </div>
+    </div>
+
+    <div id="cartModal" style="display: none;">
+        <h2>Your Cart</h2>
+        <div id="cartItems"></div>
+        <button onclick="closeCart()">Close Cart</button>
+        <button onclick="buyNow()">Buy Now</button>
+    </div>
+    
+
+    <div id="cart" onclick="viewCart()">Cart: <span id="cartCount">0</span></div>
+
+    <script>
+        // Add your JavaScript code here
+        let cartCount = 0;
+        let cartItems = {};
+
+        function addToCart(productId) {
+            cartCount++;
+            updateCartCount();
+
+            if (cartItems[productId]) {
+                cartItems[productId]++;
+            } else {
+                cartItems[productId] = 1;
+            }
+
+            updateCartItems();
+            showBuyNowButton();
+            alert('Product ' + productId + ' added to cart!');
+        }
+
+        function removeFromCart(productId) {
+            if (cartItems[productId]) {
+                cartItems[productId]--;
+                if (cartItems[productId] === 0) {
+                    delete cartItems[productId];
+                }
+                cartCount--;
+                updateCartCount();
+                updateCartItems();
+                showBuyNowButton();
+                alert('Product ' + productId + ' removed from cart!');
+            }
+        }
+
+        function updateCartCount() {
+            document.getElementById('cartCount').innerText = cartCount;
+        }
+
+        function updateCartItems() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            cartItemsContainer.innerHTML = '';
+
+            for (const productId in cartItems) {
+                const product = document.createElement('div');
+                product.classList.add('cart-item');
+                product.innerHTML = `Product ${productId}: ${cartItems[productId]} 
+                    <button onclick="removeFromCart(${productId})">Remove</button>`;
+                cartItemsContainer.appendChild(product);
+            }
+        }
+
+        function showBuyNowButton() {
+            const buyNowButton = document.getElementsByClassName('buy-now');
+            if (cartCount > 0) {
+                for (let i = 0; i < buyNowButton.length; i++) {
+                    buyNowButton[i].style.display = 'inline-block';
+                }
+            } else {
+                for (let i = 0; i < buyNowButton.length; i++) {
+                    buyNowButton[i].style.display = 'none';
+                }
+            }
+        }
+
+        function viewCart() {
+            updateCartItems();
+            document.getElementById('cartModal').style.display = 'block';
+        }
+
+        function closeCart() {
+            document.getElementById('cartModal').style.display = 'none';
+        }
+
+        function buyNow(productId) {
+            alert('Buy Now clicked for Product ' + productId + '!'); // Add your buy now functionality here
+        }
+    </script>
+
+</body>
+</html>

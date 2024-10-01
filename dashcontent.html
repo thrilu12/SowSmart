@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Farming Dashboard</title>
+    <style>
+        body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    animation: grassAnimation 10s linear infinite;
+}
+.a{
+    top: 0; 
+    left: 0; 
+    right: 0; 
+}
+.top-bar {
+    background: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+}
+
+.dashboard-card {
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+a:link, a:visited {
+  background-color: #f44336;
+  color: white;
+  padding: 14px 25px;
+  text-align: right;
+  text-decoration: none;
+  display: inline-block;
+}
+a:hover, a:active {
+  background-color: red;
+}
+    </style>
+    <script>
+        // Dummy data for demonstration purposes
+const cropData = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+    datasets: [{
+        label: 'Crop Growth',
+        data: [30, 35, 45, 50, 55, 60, 65],
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1
+    }]
+};
+
+const weatherData = {
+    temperature: '25°C',
+    humidity: '60%',
+    conditions: 'Sunny'
+};
+
+const analyticsData = {
+    labels: ['Sales', 'Expenses', 'Profit'],
+    datasets: [{
+        data: [5000, 3000, 2000],
+        backgroundColor: ['#ffcc00', '#ff6666', '#66ff66']
+    }]
+};
+
+// Update charts and weather information
+window.onload = function() {
+    const cropChart = document.getElementById('cropChart').getContext('2d');
+    new Chart(cropChart, {
+        type: 'line',
+        data: cropData
+    });
+
+    const weatherInfo = document.getElementById('weatherInfo');
+    weatherInfo.innerHTML = `
+        <p><strong>Temperature:</strong> ${weatherData.temperature}</p>
+        <p><strong>Humidity:</strong> ${weatherData.humidity}</p>
+        <p><strong>Conditions:</strong> ${weatherData.conditions}</p>
+    `;
+
+    const analyticsChart = document.getElementById('analyticsChart').getContext('2d');
+    new Chart(analyticsChart, {
+        type: 'doughnut',
+        data: analyticsData
+    });
+};
+
+    </script>
+</head>
+<body>
+    <div class="top-bar">
+        <h1>
+            
+            Hello
+        </h1>
+        <h1>
+            hi
+        </h1>
+        <span><h1>Welcome user</h1> 
+            <a class='a' href="loginpage.html" target="_blank">Back to login</a></span>
+    </div>
+    <div class="main-content">
+        <div class="dashboard-card">
+            <h2>Crop Monitoring</h2>
+            <canvas id="cropChart" width="400" height="400"></canvas>
+        </div>
+        <div class="dashboard-card">
+            <h2>Weather Data</h2>
+            <div id="weatherInfo"></div>
+        </div>
+        <div class="dashboard-card">
+            <h2>Farm Analytics</h2>
+            <canvas id="analyticsChart" width="400" height="400"></canvas>
+        </div>
+    </div>
+</body>
+</html>

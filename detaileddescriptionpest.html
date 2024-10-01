@@ -1,0 +1,251 @@
+<!-- product_description.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insecticide - Agri Farming</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        h1 {
+            text-align: center;
+            color: #28a745;
+        }
+
+        .product {
+            border: 2px solid #000000;
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .product img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin-right: 20px;
+            border: 2px solid #333e33;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .product-info {
+            flex: 1;
+            text-align: left;
+        }
+
+        .tabs {
+            margin-bottom: 20px;
+        }
+
+        .tab-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-right: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .tab-button:hover {
+            background-color: #3dd03d;
+        }
+        .tab-content {
+            display: none;
+        }
+
+        .active-tab {
+            display: block;
+        }
+        .verry{
+            top:400px;
+            bottom:20px;
+            left:6px;
+            right:18px;
+        }
+
+        .buy-now {
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .buy-now:hover {
+            background-color: #c0392b;
+        }
+
+        /* Reviews Styling */
+
+        .reviews-container {
+            margin-top: 20px;
+        }
+
+        .user-review {
+            border: 2px solid #28a745;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .user-review h3 {
+            margin-bottom: 10px;
+            color: #28a745;
+        }
+
+        .star-rating {
+            color: #f39c12;
+        }
+
+        .review-form {
+            margin-top: 20px;
+        }
+
+        .review-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        /* Specifications Styling */
+
+        .specifications-container {
+            margin-top: 20px;
+        }
+
+        .specifications p {
+            margin: 5px 0;
+        }
+
+        /* Big Image Styling */
+
+        .big-image {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .big-image img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+        }
+        .new{
+            border-radius: 2;
+            padding: 2px;
+            height: 20;
+            width: 10;
+        }
+    </style>
+</head>
+<body>
+    <h1>Insecticide</h1>
+
+    <div class="product" id="product1">
+        <div class="tabs">
+            <button class="tab-button" onclick="openTab('description')">Description</button>
+            <button class="tab-button" onclick="openTab('specifications')">Specifications</button>
+            <button class="tab-button" onclick="openTab('reviews')">Reviews</button>
+            <div class="new"><img src="dap2.jpeg" class="verry"></div>
+            <div class="new"><img src="dap3.jpeg" class="verry"></div>
+        </div>
+        <div class="product-info">
+            <img src="ferti1.jpg" alt="Insecticide">
+            <div class="tab-content description active-tab">
+                <h2>Insecticide</h2>
+                <p>This powerful insecticide is formulated to effectively control a wide range of pests, providing long-lasting protection for your crops. It ensures a healthy harvest by preventing damage from harmful insects.</p>
+                <div class="reviews-container" id="reviewsContainerDesc">
+                </div>
+                <h3>Add a Review:</h3>
+                <form class="review-form" id="reviewFormDesc">
+                    <label for="reviewTextDesc">Your Review:</label>
+                    <textarea id="reviewTextDesc" name="reviewTextDesc" rows="4" placeholder="Write your review here..."></textarea>
+                    <br>
+                    <button class="buy-now" type="button" onclick="submitReview('reviewsContainerDesc', 'reviewTextDesc')">Submit Review</button>
+                </form>
+            </div>
+            <div class="tab-content specifications">
+                <div class="specifications-container">
+                    <h2>Specifications:</h2>
+                    <p><strong>Volume:</strong> 500ml</p>
+                    <p><strong>Active Ingredient:</strong> Pyrethrin</p>
+                    <p><strong>Usage:</strong> Dilute 20ml in 1 liter of water</p>
+                </div>
+            </div>
+            <div class="tab-content reviews">
+                <h2>Customer Reviews:</h2>
+                <div class="reviews-container" id="reviewsContainer">
+                    <!-- Display recorded reviews here -->
+                </div>
+                <h3>Add a Review:</h3>
+                <form class="review-form" id="reviewForm">
+                    <label for="reviewText">Your Review:</label>
+                    <textarea id="reviewText" name="reviewText" rows="4" placeholder="Write your review here..."></textarea>
+                    <br>
+                    <button class="buy-now" type="button" onclick="submitReview('reviewsContainer', 'reviewText')">Submit Review</button>
+                </form>
+            </div>
+            <div class="pricing">
+                <p class="price">$19.99</p>
+                <button class="buy-now"><a href="buynow.html">Buy Now</a></button>
+                <button class="buy-now"><a href="fertilizers.html">Go Back</a></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="big-image">
+        <img src="big_image.jpg" alt="Big Image">
+    </div>
+
+    <script>
+        function openTab(tabName) {
+            var i;
+            var tabContent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].style.display = "none";
+            }
+            document.getElementsByClassName(tabName)[0].style.display = "block";
+        }
+
+        function submitReview(reviewsContainerId, reviewTextId) {
+            var container = document.getElementById(reviewsContainerId);
+            var reviewText = document.getElementById(reviewTextId).value;
+
+            if (reviewText.trim() !== '') {
+                var userReview = document.createElement('div');
+                userReview.classList.add('user-review');
+                userReview.innerHTML = '<h3>User Review:</h3><p>' + reviewText + '</p>';
+                container.appendChild(userReview);
+
+                // Clear the review text area
+                document.getElementById(reviewTextId).value = '';
+            } else {
+                alert('Please enter a review before submitting.');
+            }
+        }
+    </script>
+
+</body>
+</html>
