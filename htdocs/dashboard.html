@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sow Smart | Dashboard</title>
+    <link rel="stylesheet" href="style1.css" />
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <style>
+        body{
+            animation: grassAnimation 10s linear infinite;
+        }
+         @keyframes grassAnimation {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <nav class="sidebar">
+        <a href="dashboard.html" class="logo">SowSmart</a>
+
+        <div class="menu-content">  
+            <ul class="menu-items">
+                <div class="menu-title">Dashboard</div>
+
+                <li class="item">
+                    <a href="https://www.accuweather.com/en/in/bengaluru/204108/weather-forecast/204108">Weather Report</a>
+                </li>
+
+                <li class="item">
+                    <a href="#">Test here</a>
+                </li>
+
+                <li class="item">
+                    <div class="submenu-item">
+                        <span>Services</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+
+                    <ul class="menu-items submenu">
+                        <div class="menu-title">
+                            <i class="fa-solid fa-chevron-left"></i>
+                            Our Services
+                        </div>
+                        <li class="item">
+                            <a href="https://cultivatd.com/growing/farming-as-a-service/">CropFarming Services</a>
+                        </li>
+                        <li class="item">
+                            <a href="https://farmer.gov.in/STLDetails.aspx?State=29">Soil Testing</a>
+                        </li>
+                        <li class="item">
+                            <a href="https://ppqs.gov.in/contactus/central-integrated-pest-management-centrescipmcs">Pest and Disease Management</a>
+                        </li>
+                        <li class="item">
+                            <a href="https://boxigo.in/storage-services?utm_source=google&utm_medium=paidads&utm_campaign=storage_website_traffic_search_bangalore&utm_adset=std_storage_website_traffic_search_bngutm_source=google&utm_medium=paidads&utm_campaign=storage_website_traffic_search_bangalore&utm_adset=std_storage_website_traffic_search_bng&gad=1&gclid=Cj0KCQjwj5mpBhDJARIsAOVjBdoH3Kxb-q_SBo6U04lHYo44aYNTd7a-3f8hWo_u75ki1dLXxGiB3x8aAotKEALw_wcB">Warehouse storing</a>
+                        </li>
+                        <li class="item">
+                            <a href="https://sbi.co.in/web/agri-rural/agriculture-banking/crop-loan">Crop and Agriculture Loans</a>
+                        </li>
+                        <li class="item">
+                            <a href="#">FeedBack</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="item">
+                    <div class="submenu-item">
+                        <span>Products</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+
+                    <ul class="menu-items submenu">
+                        <div class="menu-title">
+                            <i class="fa-solid fa-chevron-left"></i>
+                            Our Products
+                        </div>
+                        <li class="item" onclick="loadContent('pipes.html')">
+                            <a href="#">Pipes</a>
+                        </li>
+                        <li class="item" onclick="loadContent('fertilizers.html')">
+                            <a href="#">Fertilizers</a>
+                        </li>
+                        <li class="item" onclick="loadContent('seeds.html')">
+                            <a href="#">Crop Seeds</a>
+                        </li>
+                        <li class="item">
+                            <a href="https://www.amazon.in/s?k=pesticides+for+plants&crid=7DYC2NUDU1MF&sprefix=pesticides%C2%A0%2Caps%2C577&ref=nb_sb_ss_ts-doa-p_2_11">Pesticides</a>
+                        </li>
+                        <li class="item">
+                            <a href="https://www.amazon.in/s?k=Water+motors+for+farming&crid=3OJSQOYKBBONT&sprefix=water+motors+for+farming+%2Caps%2C424&ref=nb_sb_noss_2">Water Motors</a>
+                        </li>
+                        <li class="item">
+                            <a href="https://www.amazon.in/s?k=Water+dispenser+farming&crid=A8TB3DQA6Z5W&sprefix=water+dispenser+farming%2Caps%2C501&ref=nb_sb_noss">Water Dispensers</a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <nav class="navbar">
+        <i class="fa-solid fa-bars" id="sidebar-close"></i>
+    </nav>
+
+    <main class="main">
+        <h1><iframe class="dsd" id="dashboard-iframe" src="dashcontent.html" title="description" width="1270" height="600"> </iframe></h1>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        function loadContent(url) {
+            document.getElementById('dashboard-iframe').src = url;
+        }
+    </script>
+</body>
+
+</html>
